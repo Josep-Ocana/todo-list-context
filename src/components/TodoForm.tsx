@@ -1,10 +1,9 @@
 import { useState, type FormEvent } from "react";
+import { useTodos } from "../context/useTodos";
 
-type FormProps = {
-  addTodo: (tarea: string) => void;
-};
+const Form = () => {
+  const { addTodo } = useTodos();
 
-const Form = ({ addTodo }: FormProps) => {
   const [inputValue, setInputValue] = useState<string>("");
   const [alerta, setAlerta] = useState<string>("");
 
@@ -16,7 +15,7 @@ const Form = ({ addTodo }: FormProps) => {
       return;
     }
     setAlerta("");
-    addTodo(inputValue);
+    addTodo(inputValue.trim());
     setInputValue("");
   };
 

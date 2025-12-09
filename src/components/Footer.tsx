@@ -1,12 +1,10 @@
+import { useTodos } from "../context/useTodos";
 import { useTodoStats } from "../hooks/useTodoStats";
-import type { Todo } from "../types";
 
-type FooterProps = {
-  todos: Todo[];
-};
+const Footer = () => {
+  const { todos } = useTodos();
 
-const Footer = ({ todos }: FooterProps) => {
-  const { total, completed } = useTodoStats(todos);
+  const { total, completed, pending } = useTodoStats(todos);
 
   return (
     <footer className="flex flex-col sm:flex-row justify-between  bg-gray-500 text-white p-8 text-center text-sm mt-auto">
@@ -14,7 +12,7 @@ const Footer = ({ todos }: FooterProps) => {
       <div className="sm:text-left pb-5 sm:p-0">
         <p>Tareas Totales: {total}</p>
         <p>Tareas Completadas: {completed}</p>
-        <p>Tareas Pendientes: {completed}</p>
+        <p>Tareas Pendientes: {pending}</p>
       </div>
 
       <div className="sm:text-right">

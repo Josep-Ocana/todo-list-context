@@ -1,11 +1,8 @@
+import { useTodos } from "../context/useTodos";
 import { useTodoStats } from "../hooks/useTodoStats";
-import type { Todo } from "../types";
 
-type StatsProps = {
-  todos: Todo[];
-};
-
-const Stats = ({ todos }: StatsProps) => {
+const Stats = () => {
+  const { todos } = useTodos();
   const { total, completed, pending } = useTodoStats(todos);
 
   return (

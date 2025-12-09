@@ -1,14 +1,9 @@
-import type { Todo } from "../types";
+import { useTodos } from "../context/useTodos";
 import TodoItem from "./TodoItem";
 
-type TodoListProps = {
-  todos: Todo[];
-  onToggle: (id: Todo["id"]) => void;
-  updateTodo: (id: number, newText: string) => void;
-  onDelete: (id: Todo["id"]) => void;
-};
+const TodoList = () => {
+  const { todos } = useTodos();
 
-const TodoList = ({ todos, onToggle, updateTodo, onDelete }: TodoListProps) => {
   return (
     <div>
       {todos.length === 0 ? (
@@ -20,13 +15,7 @@ const TodoList = ({ todos, onToggle, updateTodo, onDelete }: TodoListProps) => {
       ) : (
         <div className="space-y-3">
           {todos.map((todo) => (
-            <TodoItem
-              key={todo.id}
-              todo={todo}
-              onToggle={onToggle}
-              updateTodo={updateTodo}
-              onDelete={onDelete}
-            />
+            <TodoItem key={todo.id} todo={todo} />
           ))}
         </div>
       )}

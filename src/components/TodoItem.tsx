@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTodos } from "../context/useTodos";
 import CancelIcon from "../icons/cancel.svg";
 import DeleteIcon from "../icons/delete.svg";
 import EditIcon from "../icons/edit.svg";
@@ -7,12 +8,11 @@ import type { Todo } from "../types";
 
 type TodoItemProps = {
   todo: Todo;
-  onToggle: (id: Todo["id"]) => void;
-  updateTodo: (id: number, newText: string) => void;
-  onDelete: (id: Todo["id"]) => void;
 };
 
-const TodoItem = ({ todo, onToggle, updateTodo, onDelete }: TodoItemProps) => {
+const TodoItem = ({ todo }: TodoItemProps) => {
+  const { toggleTodo, deleteTodo, updateTodo } = useTodos();
+
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(todo.text);
 
@@ -24,7 +24,7 @@ const TodoItem = ({ todo, onToggle, updateTodo, onDelete }: TodoItemProps) => {
   return (
     <div className="flex justify-between items-center bg-white shadow-lg rounded-lg p-1">
       <button
-        onClick={() => onToggle(todo.id)}
+        onClick={() => toggleTodo(todo.id)}
         aria-label="Marcar tarea como completada o pendiente"
       >
         <svg
@@ -81,7 +81,7 @@ const TodoItem = ({ todo, onToggle, updateTodo, onDelete }: TodoItemProps) => {
           </button>
 
           <button
-            onClick={() => onDelete(todo.id)}
+            onClick={() => deleteTodo(todo.id)}
             className="text-red-500 p-2 uppercase font-bold"
             aria-label="Eliminar tarea"
           >
