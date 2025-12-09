@@ -25,7 +25,8 @@ const Footer = ({ todos }: FooterProps) => {
         <p className="mt-1">
           Desarrollado por:
           <a
-            href="mailto:j.ocanapuigdevall@gmail.com"
+            target="_blank"
+            href="https://github.com/Josep-Ocana"
             className="text-blue-300 hover:text-blue-100 transition duration-300 ml-1"
           >
             Josep Ocaña Puigdevall
