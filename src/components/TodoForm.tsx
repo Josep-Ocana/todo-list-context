@@ -38,7 +38,7 @@ const Form = () => {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
-        <button className="bg-blue-500 text-white rounded-lg w-full sm:w-40 sm:ml-3 py-2">
+        <button className=" bg-cyan-800 hover:bg-cyan-900 text-white rounded-lg w-full sm:w-40 sm:ml-3 py-2">
           + Añadir
         </button>
       </div>

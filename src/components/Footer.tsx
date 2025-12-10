@@ -7,7 +7,7 @@ const Footer = () => {
   const { total, completed, pending } = useTodoStats(todos);
 
   return (
-    <footer className="flex flex-col sm:flex-row justify-between  bg-gray-500 text-white p-8 text-center text-sm mt-auto">
+    <footer className="flex flex-col sm:flex-row justify-between bg-cyan-900 text-white p-8 text-center text-sm mt-auto">
       {/* Sección de estadisticas */}
       <div className="sm:text-left pb-5 sm:p-0">
         <p>Tareas Totales: {total}</p>
@@ -25,7 +25,7 @@ const Footer = () => {
           <a
             target="_blank"
             href="https://github.com/Josep-Ocana"
-            className="text-blue-300 hover:text-blue-100 transition duration-300 ml-1"
+            className="text-cyan-200 hover:underline transition duration-300 ml-1"
           >
             Josep Ocaña Puigdevall
           </a>
